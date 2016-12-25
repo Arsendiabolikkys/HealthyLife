@@ -1,0 +1,47 @@
+﻿body {
+}
+
+#navigation {
+    margin-top: 0px;
+    float: right;
+}
+
+#navigation ul li a {
+    height: 64px;
+}
+
+.forms-container {
+    width:40%;
+    margin:0 auto;
+}
+
+.container {
+    width:50%;
+    margin: 0 auto;
+}
+
+.container-item {
+    margin: 10px;
+}
+
+.validation-summary-errors {
+    color:red;
+}
+
+.admin-navigation {
+    margin: 65px 0 0 0;
+}
+
+.collection-item {
+    padding: 0 0 0 0;
+    height:10%;
+}
+
+#admin-wrapper {
+    margin-left: 240px;
+}
+
+.custom-centered {
+    width:100%;
+    margin: 0 auto;
+}

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyLife", "HealthyLife\HealthyLife.csproj", "{2821B2B2-8CF8-4B72-9FF1-8DA261A66604}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyLife.Business", "HealthyLife.Business\HealthyLife.Business.csproj", "{37173FB5-F74A-47EB-B72C-F9EF404DD250}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2821B2B2-8CF8-4B72-9FF1-8DA261A66604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2821B2B2-8CF8-4B72-9FF1-8DA261A66604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2821B2B2-8CF8-4B72-9FF1-8DA261A66604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2821B2B2-8CF8-4B72-9FF1-8DA261A66604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37173FB5-F74A-47EB-B72C-F9EF404DD250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37173FB5-F74A-47EB-B72C-F9EF404DD250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37173FB5-F74A-47EB-B72C-F9EF404DD250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37173FB5-F74A-47EB-B72C-F9EF404DD250}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

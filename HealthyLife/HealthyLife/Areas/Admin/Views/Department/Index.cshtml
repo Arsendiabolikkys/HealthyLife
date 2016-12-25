@@ -1,0 +1,32 @@
+﻿@model IEnumerable<HealthyLife.Areas.Admin.Models.DepartmentViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@if (Model != null)
+{
+    <table class="responsive-table highlight centered">
+        <thead>
+            <tr>
+                <th>@Html.ResourceString(Constants.Department.Name)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@Html.RouteLink(Constants.Main.Edit, "Admin_DepartmentEdit", new {id = item.Id}, new { @class="btn blue" })</td>
+                <td>@Html.RouteLink(Constants.Main.Delete, "Admin_DepartmentDelete", new {id = item.Id}, new { @class="btn red" })</td>
+            </tr>
+        }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>@Html.RouteLink(Constants.Main.Add, "Admin_DepartmentAdd", null, new { @class="btn green" })</td>
+            </tr>
+        </tbody>
+    </table> 
+}

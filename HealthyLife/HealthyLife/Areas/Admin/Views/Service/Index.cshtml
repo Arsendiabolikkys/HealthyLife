@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HealthyLife.Areas.Admin.Models.ServiceViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@if (Model != null)
+{
+    <table class="responsive-table highlight centered">
+        <thead>
+            <tr>
+                <th>@Html.ResourceString(Constants.Service.Date)</th>
+                <th>@Html.ResourceString(Constants.Service.Price)</th>
+                <th>@Html.ResourceString(Constants.Service.Description)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Date</td>
+                <td>@item.Price</td>
+                <td>@item.Description</td>
+                <td>@Html.RouteLink(Constants.Main.Edit, "Admin_ServiceEdit", new {id = item.Id}, new { @class="btn blue" })</td>
+                <td>@Html.RouteLink(Constants.Main.Delete, "Admin_ServiceDelete", new {id = item.Id}, new { @class="btn red" })</td>
+            </tr>
+        }
+        </tbody>
+    </table> 
+}

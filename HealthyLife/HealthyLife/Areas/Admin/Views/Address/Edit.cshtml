@@ -1,0 +1,52 @@
+﻿@model HealthyLife.Areas.Admin.Models.AddressViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="forms-container">
+    @using (Html.BeginForm("Edit", "Address", FormMethod.Post, new { @class="content" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.HiddenFor(m => m.Id)
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Address.Country)
+                        @Html.EditorFor(m => m.Country)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Address.City)
+                        @Html.EditorFor(m => m.City)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Address.TelNumber)
+                        @Html.EditorFor(m => m.TelNumber)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Address.Description)
+                        @Html.EditorFor(m => m.Description)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 right">
+                    <input type="submit" value="Зберегти" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

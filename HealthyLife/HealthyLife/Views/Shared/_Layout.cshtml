@@ -1,0 +1,51 @@
+﻿@using HealthyLife
+@using HealthyLife.Web.User
+@{
+    var UserContext = DependencyResolver.Current.GetService<HealthyLife.Web.User.WebUserContext>();
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@Html.ResourceString(Constants.Main.HealthyLife)</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @Styles.Render("~/content/materialize/css/materialize.css")
+    @Styles.Render("~/content/site.css")
+</head>
+<body>
+    <nav class="#3949ab indigo darken-1">
+        <ul class="left">
+            <li>@Html.RouteLink("Головна", "Home")</li>
+        </ul>
+        <div id="navigation" class="card hidden primary primary-text #3949ab indigo darken-1">
+            <ul>
+                @if (UserContext.IsLoggedIn)
+                {
+                    <li>@Html.RouteLink("Вихід", "Logout")</li>
+                }
+                else
+                {
+                    <li>@Html.RouteLink("Вхід", "Login")</li>
+                    <li>@Html.RouteLink("Реєстрація", "Register")</li>
+                }
+            </ul>
+        </div>
+    </nav>
+    <div id="wrapper">
+        @Html.Partial("_Popups")
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
+    @Scripts.Render("~/Scripts/materialize/materialize.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @Scripts.Render("~/Scripts/site.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

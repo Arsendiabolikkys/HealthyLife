@@ -1,0 +1,150 @@
+﻿@model HealthyLife.Models.AccountViewModel
+@{
+    ViewBag.Title = "RegisterAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="forms-container">
+<h4>Реєстрація</h4>
+@using (Html.BeginForm("RegisterAccount", "Account", FormMethod.Post, new { @class="content" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary()
+        <input type="hidden" name="IsDoctor" value="@Model.IsDoctor.ToString()" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Account.Email)
+                    @Html.EditorFor(m => m.Email)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Account.Name)
+                    @Html.EditorFor(m => m.Name)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Account.SecondName)
+                    @Html.EditorFor(m => m.SecondName)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Account.DateOfBirth)
+                    @Html.EditorFor(m => m.DateOfBirth)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Account.Password)
+                    @Html.EditorFor(m => m.Password)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Account.ConfirmPassword)
+                    @Html.EditorFor(m => m.ConfirmPassword)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Address.Country)
+                    @Html.EditorFor(m => m.Address.Country)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Address.City)
+                    @Html.EditorFor(m => m.Address.City)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Address.TelNumber)
+                    @Html.EditorFor(m => m.Address.TelNumber)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label>
+                    @Html.ResourceString(Constants.Address.Description)
+                    @Html.EditorFor(m => m.Address.Description)
+                </label>
+            </div>
+        </div>
+        @if (Model.IsDoctor)
+        {
+            @RenderDoctorFields()
+        }
+        else
+        {
+            @RenderPatientFields()
+        }
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 right">
+                <input type="submit" value="Зареєструватись" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+@helper RenderPatientFields()
+{
+    <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <label>
+            @Html.ResourceString(Constants.Patient.SocialSecurityNumber)
+            @Html.EditorFor(m => m.Patient.SocialSecurityNumber)
+        </label>
+    </div>
+</div>
+}
+
+@helper RenderDoctorFields()
+{
+    <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <label>
+            @Html.ResourceString(Constants.Doctor.Department)
+            @Html.DropDownListFor(m => m.Doctor.DepartmentId, Model.Doctor.Departments)
+        </label>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <label>
+            @Html.ResourceString(Constants.Doctor.Schedule)
+            @Html.DropDownListFor(m => m.Doctor.ScheduleId, Model.Doctor.Schedules)
+        </label>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <label>
+            @Html.ResourceString(Constants.Doctor.Specialization)
+            @Html.DropDownListFor(m => m.Doctor.SpecializationId, Model.Doctor.Specializations)
+        </label>
+    </div>
+</div>
+}

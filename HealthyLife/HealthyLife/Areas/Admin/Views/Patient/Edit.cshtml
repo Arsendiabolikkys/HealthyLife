@@ -1,0 +1,29 @@
+﻿@model HealthyLife.Areas.Admin.Models.PatientViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="forms-container">
+    @using (Html.BeginForm("Edit", "Patient", FormMethod.Post, new { @class="content" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.AccountId)
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Patient.SocialSecurityNumber)
+                        @Html.EditorFor(m => m.SocialSecurityNumber)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 right">
+                    <input type="submit" value="Зберегти" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

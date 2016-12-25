@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="center-align container-item">
+        @Html.RouteLink(Html.ResourceString(Constants.Main.RegisterAsPatient), "RegisterAccount", new { isDoctor = 0 }, new { @class="waves-effect waves-light btn" })
+    </div>
+    <div class="center-align container-item">
+        @Html.RouteLink(Html.ResourceString(Constants.Main.RegisterAsDoctor), "RegisterAccount", new { isDoctor = 1 }, new { @class="waves-effect waves-light btn" })
+    </div>
+</div>

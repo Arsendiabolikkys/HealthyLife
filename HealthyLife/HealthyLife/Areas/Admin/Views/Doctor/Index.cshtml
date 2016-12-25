@@ -1,0 +1,37 @@
+﻿@model IEnumerable<HealthyLife.Areas.Admin.Models.DoctorViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@if (Model != null)
+{
+    <table class="responsive-table highlight centered">
+        <thead>
+            <tr>
+                <th>@Html.ResourceString(Constants.Doctor.Schedule)</th>
+                <th>@Html.ResourceString(Constants.Doctor.Department)</th>
+                <th>@Html.ResourceString(Constants.Doctor.Specialization)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            var schedule = Model.FirstOrDefault().Schedules.FirstOrDefault(x => int.Parse(x.Value) == item.ScheduleId);
+            var department = Model.FirstOrDefault().Departments.FirstOrDefault(x => int.Parse(x.Value) == item.DepartmentId);
+            var specialization = Model.FirstOrDefault().Specializations.FirstOrDefault(x => int.Parse(x.Value) == item.SpecializationId);
+            var scheduleText = schedule == null ? string.Empty : schedule.Text;
+            var departmentText = department == null ? string.Empty : department.Text;
+            var specializationText = specialization == null ? string.Empty : specialization.Text;
+            <tr>
+                <td>@scheduleText</td>
+                <td>@departmentText</td>
+                <td>@specializationText</td>
+                <td>@Html.RouteLink(Constants.Main.Edit, "Admin_DoctorEdit", new {id = item.Id}, new { @class="btn blue" })</td>
+                <td>@Html.RouteLink(Constants.Main.Delete, "Admin_DoctorDelete", new {id = item.Id}, new { @class="btn red" })</td>
+            </tr>
+        }
+        </tbody>
+    </table> 
+}

@@ -1,0 +1,5 @@
+D:\Документы\ЖДТУ\3 КУРС\БД\курсач\HealthyLife\HealthyLife.Business\bin\Debug\HealthyLife.Business.dll
+D:\Документы\ЖДТУ\3 КУРС\БД\курсач\HealthyLife\HealthyLife.Business\bin\Debug\HealthyLife.Business.pdb
+D:\Документы\ЖДТУ\3 КУРС\БД\курсач\HealthyLife\HealthyLife.Business\obj\Debug\HealthyLife.Business.dll
+D:\Документы\ЖДТУ\3 КУРС\БД\курсач\HealthyLife\HealthyLife.Business\obj\Debug\HealthyLife.Business.pdb
+D:\Документы\ЖДТУ\3 КУРС\БД\курсач\HealthyLife\HealthyLife.Business\obj\Debug\HealthyLife.Business.csprojResolveAssemblyReference.cache

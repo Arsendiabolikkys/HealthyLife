@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="HealthyLife.Business" namespace="HealthyLife.Business.Models">
+  <class name="Account" table="Account">
+    <id name="Id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property name="Name" type="string" not-null="true" />
+    <property name="SecondName" type="string" not-null="true" />
+    <property name="DateOfBirth" type="datetime" not-null="false" />
+    <property name="Email" type="string" not-null="true" />
+    <property name="Password" type="string" not-null="true" />
+    <property name="PasswordSalt" type="string" not-null="true" />
+    <property name="Photo" type="string" not-null="false" />
+    <property name="AddressId" type="int" not-null="false" />
+    <property name="RoleId" type="int" not-null="false" />
+</class>
+
+<class name="Address" table="Address">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="Country" type="string" not-null="false" />
+    <property name="City" type="string" not-null="false" />
+    <property name="TelNumber" type="string" not-null="false" />
+    <property name="Description" type="string" not-null="false" />
+</class>
+
+<class name="Condition" table="Condition">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="Name" type="string" not-null="true" />
+    <property name="Description" type="string" not-null="false" />
+</class>
+
+<class name="Department" table="Department">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="Name" type="string" not-null="true" />
+</class>
+
+<class name="Disease" table="Disease">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="Name" type="string" not-null="false" />
+    <property name="Description" type="string" not-null="false" />
+</class>
+
+<class name="Doctor" table="Doctor">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="SpecializationId" type="int" not-null="false" />
+    <property name="AccountId" type="int" not-null="false" />
+    <property name="DepartmentId" type="int" not-null="false" />
+    <property name="ScheduleId" type="int" not-null="false" />
+</class>
+  
+<class name="Patient" table="Patient">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="SocialSecurityNumber" type="string" not-null="false" />
+    <property name="AccountId" type="int" not-null="false" />
+</class>
+
+<class name="PatientDisease" table="PatientDisease">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="StartDate" type="datetime" not-null="false" />
+    <property name="EndDate" type="datetime" not-null="false" />
+    <property name="DiseaseId" type="int" not-null="false" />
+    <property name="PatientId" type="int" not-null="false" />
+    <property name="ConditionId" type="int" not-null="false" />
+    <property name="Description" type="string" not-null="false" />
+</class>
+
+<class name="Role" table="Role">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="Name" type="string" not-null="false" />
+</class>
+
+<class name="Service" table="Service">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="PatientId" type="int" not-null="false" />
+    <property name="DoctorId" type="int" not-null="false" />
+    <property name="Date" type="datetime" not-null="false" />
+    <property name="Description" type="string" not-null="false" />
+    <property name="Price" type="decimal" not-null="false" />
+</class>
+
+<class name="Specialization" table="Specialization">
+  <id name="Id" type="int">
+    <generator class="identity"/>
+  </id>
+    <property name="Name" type="string" not-null="false" />
+    <property name="Description" type="string" not-null="false" />
+</class>
+  
+<class name="Schedule" table="Schedule">
+    <id name="Id" type="int">
+      <generator class="identity"/>
+    </id>
+    <property name="Day" type="string" not-null="false" />
+    <property name="FromValue" type="string" not-null="false" />
+    <property name="ToValue" type="string" not-null="false" />
+</class>
+
+</hibernate-mapping>

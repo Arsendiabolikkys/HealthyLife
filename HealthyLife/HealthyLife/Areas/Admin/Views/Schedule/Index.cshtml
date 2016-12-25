@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HealthyLife.Areas.Admin.Models.ScheduleViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@if (Model != null)
+{
+    <table class="responsive-table highlight centered">
+        <thead>
+            <tr>
+                <th>@Html.ResourceString(Constants.Schedule.Day)</th>
+                <th>@Html.ResourceString(Constants.Schedule.From)</th>
+                <th>@Html.ResourceString(Constants.Schedule.To)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Day</td>
+                <td>@item.FromValue</td>
+                <td>@item.ToValue</td>
+                <td>@Html.RouteLink(Constants.Main.Edit, "Admin_ScheduleEdit", new {id = item.Id}, new { @class="btn blue" })</td>
+                <td>@Html.RouteLink(Constants.Main.Delete, "Admin_ScheduleDelete", new {id = item.Id}, new { @class="btn red" })</td>
+            </tr>
+        }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>@Html.RouteLink(Constants.Main.Add, "Admin_ScheduleAdd", null, new { @class="btn green" })</td>
+            </tr>
+        </tbody>
+    </table> 
+}

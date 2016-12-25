@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HealthyLife.Areas.Admin.Models.AccountViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@if (Model != null)
+{
+    <table class="responsive-table highlight centered">
+        <thead>
+            <tr>
+                <th>@Html.ResourceString(Constants.Account.Email)</th>
+                <th>@Html.ResourceString(Constants.Account.Name)</th>
+                <th>@Html.ResourceString(Constants.Account.SecondName)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Email</td>
+                <td>@item.Name</td>
+                <td>@item.SecondName</td>
+                <td>@Html.RouteLink(Constants.Main.Edit, "Admin_AccountEdit", new {id = item.Id}, new { @class="btn blue" })</td>
+                <td>@Html.RouteLink(Constants.Main.Delete, "Admin_AccountDelete", new {id = item.Id}, new { @class="btn red" })</td>
+            </tr>
+        }
+        </tbody>
+    </table> 
+}

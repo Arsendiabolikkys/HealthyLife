@@ -1,0 +1,60 @@
+﻿@model HealthyLife.Areas.Admin.Models.ServiceViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="forms-container">
+    @using (Html.BeginForm("Edit", "Service", FormMethod.Post, new { @class="content" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.HiddenFor(m => m.Id)
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Service.Patient)
+                        @Html.DropDownListFor(m => m.PatientId, Model.Patients)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Service.Doctor)
+                        @Html.DropDownListFor(m => m.DoctorId, Model.Doctors)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Service.Date)
+                        @Html.EditorFor(m => m.Date)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Service.Price)
+                        @Html.EditorFor(m => m.Price)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label>
+                        @Html.ResourceString(Constants.Service.Description)
+                        @Html.EditorFor(m => m.Description)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 right">
+                    <input type="submit" value="Зберегти" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

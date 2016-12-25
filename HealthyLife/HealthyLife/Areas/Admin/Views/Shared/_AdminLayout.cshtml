@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>@Html.ResourceString(Constants.Main.HealthyLife)</title>
+    @Styles.Render("~/Content/materialize/css/materialize.css")
+    @Styles.Render("~/Content/site.css")
+</head>
+<body>
+    <div>
+    <nav class="#3949ab indigo darken-1">
+        <ul class="left">
+            <li>@Html.RouteLink("Головна", "Home")</li>
+        </ul>
+        <ul class="right">
+            <li>@Html.RouteLink("Адмін", "Admin_home")</li>
+        </ul>
+        <div id="navigation" class="card hidden primary primary-text #3949ab indigo darken-1">
+        </div>
+    </nav>
+    <div id="admin-wrapper">
+        <aside class="admin-menu">
+            <ul class="side-nav fixed collection content admin-navigation">
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Accounts), "Admin_Accounts")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Addresses), "Admin_Addresses")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Departments), "Admin_Departments")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Diseases), "Admin_Diseases")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Doctors), "Admin_Doctors")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Patients), "Admin_Patients")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Schedules), "Admin_Schedules")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Services), "Admin_Services")
+                </li>
+                <li class="collection-item">
+                    @Html.RouteLink(Html.ResourceString(Constants.Admin.Admin_Specializations), "Admin_Specializations")
+                </li>
+            </ul>
+        </aside>
+        @Html.Partial("_AdminPopups")
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
+    @Scripts.Render("~/Scripts/materialize/materialize.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @Scripts.Render("~/Scripts/site.js")
+    @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>
